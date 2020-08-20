@@ -10,31 +10,14 @@ Original file is located at
 def jogar():
   from random import randint
 
-  print('******************************')
-  print('**   Jogo de Adivinhação    **')
-  print('******************************')
-  print("**         Níveis           **")
-  print("**  Nível 1 = 20 tentativas **")
-  print("**  Nível 2 = 10 tentativas **")
-  print("**  Nível 3 = 5 tentativas  **")
-  print("**  Tente acertar de 0 a 20 **")
-  print('******************************')
+  print_initialize_message()
 
-  level = int(input("Escolha o nível: "))
-
-  while level > 3:
-    if level > 3:
-      level = int(input("Nível inválido digite novamente: "))
+  ask_level()
     
   score = 1000
   total_score = score
 
-  if level == 1:
-    number_attempts = 20
-  elif level == 2:
-    number_attempts = 10
-  elif level == 3:
-    number_attempts = 5
+  check_selected_level()
 
   secret_number = randint(0,20)
 
@@ -70,3 +53,29 @@ def jogar():
     print("Sua pontuação foi {}".format(abs(total_score)))
   else:
     print("Você gastou todas suas tentativas! =(")
+
+def print_initialize_message():
+  print('******************************')
+  print('**   Jogo de Adivinhação    **')
+  print('******************************')
+  print("**         Níveis           **")
+  print("**  Nível 1 = 20 tentativas **")
+  print("**  Nível 2 = 10 tentativas **")
+  print("**  Nível 3 = 5 tentativas  **")
+  print("**  Tente acertar de 0 a 20 **")
+  print('******************************')
+
+def ask_level()
+    level = int(input("Escolha o nível: "))
+
+  while level > 3:
+    if level > 3:
+      level = int(input("Nível inválido digite novamente: "))
+
+def check_selected_level():
+  if level == 1:
+    number_attempts = 20
+  elif level == 2:
+    number_attempts = 10
+  elif level == 3:
+    number_attempts = 5
